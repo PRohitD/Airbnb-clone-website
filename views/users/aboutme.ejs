@@ -1,0 +1,113 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+     body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* background: linear-gradient(to right, #e0eafc, #cfdef3); */
+        background:  #ffe6e6;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .page-title {
+        text-align: center;
+        color: #000000; /* reddish title */
+        margin-bottom: 40px;
+        font-size: 36px;
+        border-bottom: 2px solid #e63946;
+        padding-bottom: 10px;
+    }
+
+    .info-section {
+        margin-bottom: 40px;
+    }
+
+    .info-section h2 {
+        color: #000000;;
+        margin-bottom: 15px;
+        font-size: 26px;
+        border-left: 6px solid #e63946; /* red accent line */
+        padding-left: 10px;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    ul li {
+        background-color: #f0f9ff;
+        padding: 12px 18px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    ul li:hover {
+        background-color: #ffe5e5; /* light red hover */
+        transform: translateX(5px);
+    }
+
+    .link-list li a {
+        color: #e63946; /* red for links */
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .link-list li a:hover {
+        text-decoration: underline;
+        color: #c1121f;
+    }
+
+    .tech-list li {
+        font-weight: bold;
+        color: #1e3a8a;
+    }
+</style>
+<div class="container">
+    <h1 class="page-title">About Me</h1>
+
+    <section class="info-section">
+        <h2>Personal Information</h2>
+        <ul>
+            <li><strong>Name:</strong> Rohit Pawar</li>
+            <li><strong>Branch:</strong> Computer Science and Engineering</li>
+            <li><strong>Diploma College:</strong> Government Polytechnic, Miraj</li>
+            <li><strong>Percentage:</strong> 86%</li>
+            <li><strong>Current College:</strong> KIT's College of Engineering Kolhapur (Empowered Autonomous)</li>
+        </ul>
+    </section>
+
+    <section class="info-section">
+        <h2>Tech Stack</h2>
+        <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>EJS</li>
+            <li>MongoDB</li>
+        </ul>
+    </section>
+
+    <section class="info-section">
+        <h2>Connect with Me</h2>
+        <ul class="link-list">
+            <li><a href="https://github.com/PRohitD" target="_blank">GitHub</a></li>
+            <li><a href=" " target="_blank">LinkedIn</a></li>
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,111 @@
+<style>
+    /* Base styles for the navbar */
+    .navbar {
+        background-color: #ffffff;
+        border-bottom: 2px solid #e63946;
+    }
+
+    /* Navbar links */
+    .navbar-nav .nav-link {
+        color: #333;
+        font-weight: 600;
+        margin: 0 10px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #e63946;  /* Hover color change */
+    }
+
+    /* Search Button Styles */
+    .search-btn {
+        background-color: #e63946;  /* Red color */
+        color: #fff;
+        border-radius: 25px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-btn:hover {
+        background-color: #d62739;  /* Darker red on hover */
+    }
+
+    .search-btn i {
+        margin-right: 8px;
+    }
+
+    /* Search Input Field */
+    .search-inp {
+        border-radius: 25px;
+        padding: 0.5rem 1rem;
+        border: 1px solid #e63946;
+        margin-right: 10px;
+    }
+
+    /* Responsiveness: Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .navbar-nav {
+            text-align: center;
+        }
+
+        /* Hide search input field on small screens */
+        .search-inp {
+            display: none;
+        }
+
+        /* Navbar toggler */
+        .navbar-toggler {
+            border: 1px solid #e63946;
+        }
+    }
+
+    /* Ensuring the search bar stays visible on large screens */
+    @media (min-width: 768px) {
+        .search-inp {
+            width: 200px;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="fa-compass" href="/listings">
+            <i class="fa-regular fa-compass"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarku">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listings">Explore</a>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-link" href="/aboutme"><b>About the Developer</b></a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <form class="d-flex" role="search">
+                    <input 
+                        class="form-control me-2 search-inp" 
+                        type="search" 
+                        placeholder="Find your peace" 
+                    />
+                    <button class="btn search-btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Add your property</a>
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/signUP"><b>Sign Up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                <% } %>
+                <% if(currUser) { %>
+                    <a class="nav-link" href="/logout"><b>Log out</b></a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
