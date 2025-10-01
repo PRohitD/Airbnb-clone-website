@@ -96,12 +96,6 @@ const sessionOptions={
 
 
 
-// app.get("/", (req, res) => {
-//     res.send("hii I am root");
-// });
-
-
-
 app.use(session (sessionOptions));
 app.use(flash());
 
@@ -136,10 +130,13 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/",userRouter);
 
 //me code add
-// app.get("/", (req, res) => {
-//     res.redirect("/listings");
-// });
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
+//boking routes 
+const bookingRoutes = require("./routes/booking");
+app.use("/", bookingRoutes);
 
 
 

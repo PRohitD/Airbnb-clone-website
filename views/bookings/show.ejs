@@ -1,0 +1,9 @@
+<div class="container mt-4">
+  <h2>Booking Confirmed ✅</h2>
+  <p><b>Listing:</b> <%= booking.listing.title %></p>
+  <p><b>Booked by:</b> <%= booking.user.username %></p>
+  <p><b>From:</b> <%= booking.startDate.toDateString() %></p>
+  <p><b>To:</b> <%= booking.endDate.toDateString() %></p>
+  <p><b>Guests:</b> <%= booking.guests %></p>
+  <p><b>Total Price:</b> ₹<%= booking.totalPrice %></p>
+</div>

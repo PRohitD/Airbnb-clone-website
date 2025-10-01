@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="confirmation-container">
+  <div class="confirmation-card">
+    <div class="header">
+      <h1>🎉 Booking Confirmed!</h1>
+      <p>Thank you <%= booking.user.username %>, your booking has been successfully confirmed.</p>
+    </div>
+
+    <div class="details">
+      <h2>Booking Details</h2>
+      <ul>
+        <li><strong>Listing:</strong> <%= booking.listing.title %></li>
+        <li><strong>Location:</strong> <%= booking.listing.location %>, <%= booking.listing.country %></li>
+        <li><strong>Check-in:</strong> <%= booking.startDate.toDateString() %></li>
+        <li><strong>Check-out:</strong> <%= booking.endDate.toDateString() %></li>
+        <li><strong>Guests:</strong> <%= booking.guests %></li>
+        <li><strong>Booked On:</strong> <%= booking.createdAt.toDateString() %></li>
+      </ul>
+    </div>
+
+    <div class="back-btn">
+      <a href="/listings/<%= booking.listing._id %>">Back to Listing</a>
+    </div>
+  </div>
+</div>

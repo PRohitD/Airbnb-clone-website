@@ -24,12 +24,26 @@ const listingSchema = new Schema({
     }
     ], 
 
+     // ✅ Add this
+  isBooked: {
+    type: Boolean,
+    default: false,
+  },
+
     owner:{
            type:Schema.Types.ObjectId,
            ref:"User", 
     },
 
-});
+    //boking 
+     bookings: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Booking"
+        }
+    ]
+
+},{ timestamps: true });
 
 listingSchema.post("findOneAndDelete",async(listing)=>{
     if(listing){
