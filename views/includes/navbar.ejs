@@ -13,12 +13,14 @@
     }
 
     .navbar-nav .nav-link:hover {
-        color: #e63946;  /* Hover color change */
+        color: #e63946;
+        /* Hover color change */
     }
 
     /* Search Button Styles */
     .search-btn {
-        background-color: #e63946;  /* Red color */
+        background-color: #e63946;
+        /* Red color */
         color: #fff;
         border-radius: 25px;
         padding: 0.5rem 1rem;
@@ -28,7 +30,8 @@
     }
 
     .search-btn:hover {
-        background-color: #d62739;  /* Darker red on hover */
+        background-color: #d62739;
+        /* Darker red on hover */
     }
 
     .search-btn i {
@@ -84,28 +87,25 @@
                 <a class="nav-link" href="/aboutme"><b>About the Developer</b></a>
             </div>
             <div class="navbar-nav ms-auto">
-                <form class="d-flex" role="search">
-                    <input 
-                        class="form-control me-2 search-inp" 
-                        type="search" 
-                        placeholder="Find your peace" 
-                    />
+               
+                <form class="d-flex " role="search" action="/listings/search" method="GET">
+                    <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Find your peace" />
                     <button class="btn search-btn" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>Search
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
                     </button>
                 </form>
             </div>
 
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Add your property</a>
-                <% if(!currUser) { %>
-                    <a class="nav-link" href="/signUP"><b>Sign Up</b></a>
-                    <a class="nav-link" href="/login"><b>Log in</b></a>
-                <% } %>
-                <% if(currUser) { %>
-                    <a class="nav-link" href="/logout"><b>Log out</b></a>
-                <% } %>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="/listings/new">Add your property</a>
+                    <% if(!currUser) { %>
+                        <a class="nav-link" href="/signUP"><b>Sign Up</b></a>
+                        <a class="nav-link" href="/login"><b>Log in</b></a>
+                        <% } %>
+                            <% if(currUser) { %>
+                                <a class="nav-link" href="/logout"><b>Log out</b></a>
+                                <% } %>
+                </div>
             </div>
         </div>
-    </div>
 </nav>

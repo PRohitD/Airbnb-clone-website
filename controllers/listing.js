@@ -3,10 +3,9 @@ const Listing= require("../models/listing");
 module.exports.index=async (req, res) => {
 
     const alllistings = await Listing.find({});
-    res.render("listings/index.ejs", { alllistings });
+    res.render("listings/index.ejs", { alllistings ,query: null});
 
 }
-
 
 
 
@@ -17,24 +16,21 @@ module.exports.renderNewForm = (req, res) => {
 
 
 
-module.exports.showListing=async (req, res) => {
-    let { id } = req.params;
+// Show a single listing
+module.exports.showListing = async (req, res) => {
+    const { id } = req.params;
     const listing = await Listing.findById(id)
         .populate({
             path: "reviews",
-            populate: {
-                path: "author",
-            }
+            populate: { path: "author" }
         })
         .populate("owner");
+
     if (!listing) {
-        req.flash("error", "Listing does not exists !!");
-        res.redirect("/listings");
+        req.flash("error", "Listing does not exist!");
+        return res.redirect("/listings");
     }
-    // console.log(listing);
     res.render("listings/show.ejs", { listing });
-
-
 };
 
 
@@ -79,3 +75,20 @@ module.exports.destroyisting=async (req, res) => {
     res.redirect("/listings");
 
 };
+
+// ✅ Search listings
+module.exports.searchListings = async (req, res) => {
+  const query = req.query.q;
+  let listings = [];
+
+  if (query) {
+    listings = await Listing.find({
+      title: { $regex: query, $options: "i" }, // case-insensitive search
+    });
+  }
+
+  res.render("listings/index", { alllistings: listings, query });
+};
+
+
+
